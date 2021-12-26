@@ -3,6 +3,7 @@ import javax.swing.table.AbstractTableModel;
 public class Board extends AbstractTableModel {
     private final Object[] tableColumns;
     private final Object[][] tableContent;
+    // Vamos criar nosso próprio modelod e tabela para facilitar a alteração de certas células
 
     public Board(Object[] tableColumns, Object[][] tableContent) {
         this.tableColumns = tableColumns;
@@ -30,8 +31,8 @@ public class Board extends AbstractTableModel {
     }
 
     @Override
-    public void setValueAt(Object value, int i, int i1) {
-        this.tableContent[i][i1] = value;
-        fireTableCellUpdated(i, i1);
+    public void setValueAt(Object value, int row, int column) {
+        this.tableContent[row][column] = value;
+        fireTableCellUpdated(row, column);
     }
 }
