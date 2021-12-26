@@ -26,7 +26,7 @@ public class GameWindow {
     public GameWindow(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
-        this.board = new Board(tableColumns, tableContent);
+        this.board = new Board(tableColumns, tableContent, player1.getPlayerSymbol(), player2.getPlayerSymbol());
     }
 
     protected void start() {
