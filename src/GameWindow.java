@@ -98,18 +98,20 @@ public class GameWindow {
                     // A vez do jogador só irá passar caso ele escolha uma casa válida
                     myTable.setValueAt(player1.getPlayerSymbol(), myTable.getSelectedRow(), myTable.getSelectedColumn());
                     // Adicionando o símbolo do jogador à casa escolhida
+                    myTable.setSelectionForeground(Color.RED);
                 } else {
                     round += player2.setCellValue(myTable.getValueAt(myTable.getSelectedRow(), myTable.getSelectedColumn()), player1.getPlayerSymbol(), player2.getPlayerSymbol());
                     myTable.setValueAt(player2.getPlayerSymbol(), myTable.getSelectedRow(), myTable.getSelectedColumn());
+                    myTable.setSelectionForeground(Color.GREEN);
                 }
 
                 String[] options = {"Jogar novamente", "Sair"}; // Opções após o fim da partida
                 int choice = 5;
                 if(player1.winCondition()) {
-                    choice = JOptionPane.showOptionDialog(null, null, "PLAYER 1 VENCEU", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                    choice = JOptionPane.showOptionDialog(null, "PLAYER 1 VENCEU!", "Fim de jogo!", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
                     // Retorna 0
                 } else if(player2.winCondition()) {
-                    choice = JOptionPane.showOptionDialog(null, null, "PLAYER 2 VENCEU", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                    choice = JOptionPane.showOptionDialog(null, "PLAYER 2 VENCEU!", "Fim de jogo!", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
                     // Retorna 1
                 }
                 if(choice == 0) {
