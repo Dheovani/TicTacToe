@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Player {
     private final char playerSymbol;
-    private final Object[] cells = new Object[5];
+    private Object[] cells = new Object[5]; // Array para guardar as "casas" que o player escolheu
     private int cont = 0;
 
     private final Object[][] wins = new Object[][]{
@@ -44,5 +44,11 @@ public class Player {
             // Caso tudo ocorra como o esperado, iremos retornar 1 para somar à variável "round" e passar a rodada
         }
         return 0;
+    }
+
+    public void resetPlayer() {
+        this.cells = new Object[5];
+        this.cont = 0;
+        // Esse método reinicia os atributos responsáveis por permitir que o jogagor vença
     }
 }

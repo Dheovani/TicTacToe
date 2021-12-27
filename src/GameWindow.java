@@ -115,9 +115,17 @@ public class GameWindow {
                     // Retorna 1
                 }
                 if(choice == 0) {
-                    // Estou tentando criar um botão de reiniciar [ON GOING]
-                    JOptionPane.showMessageDialog(null, "Foi mal, não sei fazer isso ainda.");
-                    window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
+//                    round = 0; // Podemos reiniciar o round ou não
+                    // Optei por não reiniciar o round para que o player 2 seja o primeiro a jogar dessa vez
+                    board.resetTable(tableContent); // Reiniciamos a table
+                    player1.resetPlayer();
+                    player2.resetPlayer();
+                    // Reiniciamos os jogadores
+                    GameWindow gm = new GameWindow(player1, player2);
+                    gm.start(); // Criamos um novo jogo
+                    window.setVisible(false); // Escondemos o primeiro jogo
+
+                    // Ainda é um problema que os Frames já utilizados não sejam fechados. Resolverei isso no futuro.
                 } else if(choice == 1) {
                     window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
                 }

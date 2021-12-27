@@ -2,7 +2,7 @@ import javax.swing.table.AbstractTableModel;
 
 public class Board extends AbstractTableModel {
     private final Object[] tableColumns;
-    private final Object[][] tableContent;
+    private Object[][] tableContent;
     // Vamos criar nosso próprio modelod e tabela para facilitar a alteração de certas células
 
     private final Object p1Symbol;
@@ -44,5 +44,10 @@ public class Board extends AbstractTableModel {
             fireTableCellUpdated(row, column);
             // Caso a célula seja editável, podemos alterar o valor dela
         }
+    }
+
+    public void resetTable(Object[][] table) {
+        this.tableContent = table;
+        // Esse método reinicia a table de valores do jogo
     }
 }
