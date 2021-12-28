@@ -115,8 +115,7 @@ public class GameWindow {
                     // Retorna 1
                 }
                 if(choice == 0) {
-//                    round = 0; // Podemos reiniciar o round ou não
-                    // Optei por não reiniciar o round para que o player 2 seja o primeiro a jogar dessa vez
+                    round = 0; // Podemos reiniciar o round
                     board.resetTable(tableContent); // Reiniciamos a table
                     player1.resetPlayer();
                     player2.resetPlayer();
